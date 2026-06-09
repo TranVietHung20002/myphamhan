@@ -63,28 +63,6 @@
 .hero__arrow--prev { left: 16px; }
 .hero__arrow--next { right: 16px; }
 
-/* Dots */
-.hero__dots {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 2;
-}
-.hero__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(26,26,26,0.25);
-  transition: all var(--transition);
-}
-.hero__dot--active {
-  background: var(--color-dark);
-  width: 24px;
-  border-radius: 4px;
-}
 
 /* Responsive */
 @media (max-width: 768px) {

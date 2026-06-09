@@ -4,7 +4,6 @@ import "./HeroBanner.css";
 
 const slides = [
   {
-    id: 1,
     title: 'ĐẸP RẠNG NGỜI VỚI\n"MỸ PHẨM 90+"',
     subtitle: "Khám phá vẻ đẹp tự nhiên của bạn",
     cta: "MUA NGAY",
@@ -12,7 +11,6 @@ const slides = [
     bg: "#F0E6D8",
   },
   {
-    id: 2,
     title: "CHĂM SÓC DA\nTOÀN DIỆN",
     subtitle: "Bộ sản phẩm dưỡng da cao cấp từ thiên nhiên",
     cta: "KHÁM PHÁ",
@@ -20,7 +18,6 @@ const slides = [
     bg: "#D4E4D8",
   },
   {
-    id: 3,
     title: "TRANG ĐIỂM\nTỰ TIN TỎA SÁNG",
     subtitle: "Bộ sưu tập son môi và phấn trang điểm mới nhất",
     cta: "XEM NGAY",
@@ -45,7 +42,6 @@ export default function HeroBanner() {
   return (
     <section className="hero" style={{ background: slide.bg }}>
       <div className="container hero__inner">
-        {/* LEFT: text */}
         <div className="hero__content">
           <h1 className="hero__title" style={{ whiteSpace: "pre-line" }}>
             {slide.title}
@@ -69,16 +65,6 @@ export default function HeroBanner() {
         </svg>
       </button>
 
-      <div className="hero__dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`hero__dot${i === current ? " hero__dot--active" : ""}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }
