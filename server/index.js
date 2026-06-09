@@ -11,11 +11,19 @@ const orderRoutes = require("./routes/orders");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
-
-// Serve ảnh đã upload
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Kết nối MongoDB trước mỗi request (serverless safe)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ message: "Lỗi kết nối database" });
+  }
+});
 
 app.use("/api/products", productRoutes);
 app.use("/api/admin", adminRoutes);
@@ -26,8 +34,14 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", message: "Mỹ Phẩm 90+ API đang chạy" });
 });
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server chạy tại http://localhost:${PORT}`);
+// Export cho Vercel serverless
+module.exports = app;
+
+// Chỉ listen khi chạy local
+if (require.main === module) {
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server chạy tại http://localhost:${PORT}`);
+    });
   });
-});
+}
