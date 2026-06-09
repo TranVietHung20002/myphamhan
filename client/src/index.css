@@ -1,0 +1,81 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #F5EFE6;
+  --color-dark: #1A1A1A;
+  --color-white: #FFFFFF;
+  --color-gray: #6B6B6B;
+  --color-gray-light: #E8E0D8;
+  --color-star: #F5A623;
+  --color-accent: #C8956B;
+  --font: "Be Vietnam Pro", sans-serif;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --radius: 8px;
+  --transition: 0.25s ease;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg-primary);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+}
+
+.btn-primary {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius);
+  transition: opacity var(--transition);
+}
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-outline {
+  background: var(--color-white);
+  color: var(--color-dark);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--color-dark);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+.btn-outline:hover {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
