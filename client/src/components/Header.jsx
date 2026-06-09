@@ -8,8 +8,6 @@ const navLinks = [
   { label: "SẢN PHẨM", path: "/san-pham" },
   { label: "CHĂM SÓC DA", path: "/san-pham?category=cham-soc-da" },
   { label: "TRANG ĐIỂM", path: "/san-pham?category=trang-diem" },
-  { label: "THƯƠNG HIỆU", path: "/thuong-hieu" },
-  { label: "TIN TỨC", path: "/tin-tuc" },
 ];
 
 export default function Header() {
