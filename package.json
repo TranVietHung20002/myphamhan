@@ -1,5 +1,16 @@
 {
-  "devDependencies": {
-    "puppeteer": "^25.1.0"
-  }
+  "name": "mypham90-root",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd client && npm install && npm run build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "mongoose": "^9.6.3",
+    "multer": "^2.1.1",
+    "resend": "^6.12.4"
+  },
+  "devDependencies": {}
 }
