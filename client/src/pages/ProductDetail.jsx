@@ -55,7 +55,7 @@ export default function ProductDetail() {
         <div className="product-detail__img">
           {product.image ? (
             <img
-              src={`http://localhost:5000/api/upload/image/${product.image}`}
+              src={`/api/upload/image/${product.image}`}
               alt={product.name}
               className="product-detail__img-real"
               onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}

@@ -51,7 +51,7 @@ export default function ProductCard({ product }) {
       <Link to={`/san-pham/${productId}`} className="product-card__img-wrap">
         {product.image ? (
           <img
-            src={`http://localhost:5000/api/upload/image/${product.image}`}
+            src={`/api/upload/image/${product.image}`}
             alt={product.name}
             className="product-card__img"
             onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}
