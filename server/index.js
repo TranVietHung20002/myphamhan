@@ -34,6 +34,24 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", message: "Mỹ Phẩm 90+ API đang chạy" });
 });
 
+app.get("/api/test-email", async (req, res) => {
+  const { Resend } = require("resend");
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  try {
+    const result = await resend.emails.send({
+      from: "Mỹ Phẩm 90+ <onboarding@resend.dev>",
+      to: [process.env.SHOP_EMAIL],
+      subject: "Test email từ Mỹ Phẩm 90+",
+      html: "<p>Email test thành công! ✅</p>",
+    });
+    console.log("Test email result:", JSON.stringify(result));
+    res.json({ success: true, result });
+  } catch (err) {
+    console.error("Test email error:", err);
+    res.json({ success: false, error: err.message });
+  }
+});
+
 // Export cho Vercel serverless
 module.exports = app;
 

@@ -101,16 +101,19 @@ router.post("/", async (req, res) => {
     const recipients = [process.env.SHOP_EMAIL];
     if (form.email) recipients.push(form.email);
 
-    await resend.emails.send({
+    console.log("📧 Gửi email đến:", recipients);
+
+    const result = await resend.emails.send({
       from: "Mỹ Phẩm 90+ <onboarding@resend.dev>",
       to: recipients,
       subject: `🛍 Đơn hàng mới từ ${form.fullName} — ${total.toLocaleString("vi-VN")}đ`,
       html,
     });
 
-    res.json({ success: true });
+    console.log("✅ Resend response:", JSON.stringify(result));
+    res.json({ success: true, emailId: result?.data?.id });
   } catch (err) {
-    console.error("Lỗi gửi email:", err);
+    console.error("❌ Lỗi gửi email:", err);
     res.status(500).json({ success: false, message: err.message });
   }
 });
